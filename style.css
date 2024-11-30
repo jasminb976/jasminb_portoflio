@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F8B0C8;
+    color: #fff;
+  }
+
+  /*Loading Screen: Password Input + Profile Picture + Name*/
+  .loading-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 50vh;
+    background-color: #AF7F73;
+    /*border-style: solid;
+    border-color: #733D26;
+    border-width:50px;*/
+  }
+
+  .profile-pic{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+  }
+
+  .loading-screen input{
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    width: 80%;
+    max-width: 300px;
+    box-sizing: border-box;
+  }
+
+  .text-element{
+    font-family: 'VT323', monospace;
+    font-size: 30px;
+    margin-top: 10px;
+    color: #F9D0DE;
+  }
+
+
+  .desktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .folder {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .window {
+    border: 1px solid #333;
+    background-color: #fff;
+    animation: fadeIn 0.5s;
+  }
+  

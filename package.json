@@ -1,0 +1,18 @@
+{
+  "name": "jb-portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  },
+  "dependencies": {
+    "interact.js": "^1.2.8",
+    "interactjs": "^1.10.27"
+  }
+}
