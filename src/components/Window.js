@@ -1,26 +1,35 @@
 import interact from 'interactjs';
+//import { folders } from './desktop.js';
 
 export function createWindow(container, window) {
   const windowElem = document.createElement('div');
+  windowElem.className = 'window';
+  windowElem.id = `window-${name}`;
   windowElem.className = `window ${window.draggable ? 'draggable' : ''}`;
 
   if (window.draggable) {
     const header = document.createElement('div');
     header.className = 'window-header';
 
+    const title = document.createElement('div');
+    title.className = 'window-title';
+    title.innerText = name;
+
     const closeButton = document.createElement('button');
-    closeButton.innerText = 'X';
+    closeButton.className = 'close-btn';
+    closeButton.innerText = 'x';
     closeButton.addEventListener('click', () => {
       container.removeChild(windowElem);
     });
 
+    header.appendChild(title);
     header.appendChild(closeButton);
     windowElem.appendChild(header);
   }
 
   const content = document.createElement('div');
   content.className = 'window-content';
-  content.innerText = window.content;
+  content.innerHTML = window.content;
   windowElem.appendChild(content);
 
   container.appendChild(windowElem);

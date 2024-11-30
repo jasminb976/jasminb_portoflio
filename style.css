@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=VT323&display=swap');
 
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #F8B0C8;
-    color: #fff;
+    color: black;
+    cursor: url('pinkCursor.png'), auto;
   }
 
   /*Loading Screen: Password Input + Profile Picture + Name*/
@@ -17,9 +19,6 @@ body {
     height: 100vh;
     width: 50vh;
     background-color: #AF7F73;
-    /*border-style: solid;
-    border-color: #733D26;
-    border-width:50px;*/
   }
 
   .profile-pic{
@@ -39,18 +38,19 @@ body {
 
   .text-element{
     font-family: 'VT323', monospace;
-    font-size: 30px;
+    font-size: 40px;
     margin-top: 10px;
     color: #F9D0DE;
   }
 
-
+/*Standard CSS for Homescreen*/
   .desktop {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
     overflow: hidden;
+    
   }
   .folder {
     display: flex;
@@ -58,8 +58,59 @@ body {
     cursor: pointer;
   }
   .window {
-    border: 1px solid #333;
-    background-color: #fff;
+    position: absolute;
+    border: 5px solid #AF7F73;
+    background-color: #F9D0DE;
     animation: fadeIn 0.5s;
+    width:600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
+
+  .window-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #AF7F73;
+    padding: 10px;
+    border-bottom: 1px solid #AF7F73;
+  }
+
+  .window-title{
+    font-family: 'VT323', monospace;
+    font-size: 30px;
+  }
+
+  .close-btn{
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    background: none;
+    cursor: pointer;
+  }
+
+  .window-content{
+    padding: 20px;
+  }
+
+/*Welcoming Tab*/
+.layout {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+h1{
+  text-align: center;
+  color:#F790B2;
+  font-family: 'VT323', monospace;
+  font-size: 45px;
+}
+p{
+  margin-left:30px;
+  font-family: "Baloo 2", sans-serif;
+}
+.mainImg{
+  width: 250px;
+  height: 280px;
+}
