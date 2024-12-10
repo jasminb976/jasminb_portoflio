@@ -1,5 +1,4 @@
 import interact from 'interactjs';
-//import { folders } from './desktop.js';
 
 export function createWindow(container, window) {
   const windowElem = document.createElement('div');

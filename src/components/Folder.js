@@ -3,7 +3,7 @@ import { createWindow } from './Window.js';
 export function createFolder(container, folder) {
   const folderElem = document.createElement('div');
   folderElem.className = 'folder';
-  //folderElem.innerText = name;
+  folderElem.innerText = name;
 
   const img = document.createElement('img');
   img.src = 'folder-icon.png';
