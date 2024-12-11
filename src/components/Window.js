@@ -1,18 +1,21 @@
 import interact from 'interactjs';
 
-export function createWindow(container, window) {
+export function createWindow(container, windowData) {
   const windowElem = document.createElement('div');
-  windowElem.className = 'window';
-  windowElem.id = `window-${name}`;
-  windowElem.className = `window ${window.draggable ? 'draggable' : ''}`;
+  windowElem.className = `window ${windowData.draggable ? 'draggable': ''}`;
+  windowElem.id = `window-${windowData.name}`
 
-  if (window.draggable) {
+  /*windowElem.className = 'window';
+  windowElem.id = `window-${name}`;
+  windowElem.className = `window ${window.draggable ? 'draggable' : ''}`;*/
+
+  if (windowData.draggable) {
     const header = document.createElement('div');
     header.className = 'window-header';
 
     const title = document.createElement('div');
     title.className = 'window-title';
-    title.innerText = name;
+    title.innerText = windowData.name;
 
     const closeButton = document.createElement('button');
     closeButton.className = 'close-btn';
@@ -28,12 +31,12 @@ export function createWindow(container, window) {
 
   const content = document.createElement('div');
   content.className = 'window-content';
-  content.innerHTML = window.content;
+  content.innerHTML = windowData.content;
   windowElem.appendChild(content);
 
   container.appendChild(windowElem);
 
-  if (window.draggable) {
+  if (windowData.draggable) {
     interact(windowElem)
       .draggable({
         handle: '.window-header',

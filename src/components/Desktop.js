@@ -1,11 +1,3 @@
-/*export const folders = [
-  {id: 1, name: 'About Me', content: '<p>About Me</p>'},
-  { id: 2, name: 'Projects', content: '<p>Projects</p>' }, 
-  { id: 3, name: 'Blog', content: '<p>Blog</p>' }, 
-  { id: 4, name: 'Media', content: '<p>Media</p>' }, 
-  { id: 5, name: 'Contact Me', content: '<p>Contact Me</p>' }
-];*/
-
 import { createLoadingScreen } from './LoadingScreen.js';
 import { createFolder } from './Folder.js';
 import { createWindow } from './Window.js';
@@ -16,7 +8,6 @@ export function createDesktop(container) {
   container.appendChild(desktop);
 
   createLoadingScreen(desktop, () => {
-    
     const folders = [
       { id: 1, 
         name: 'About Me', 
@@ -39,6 +30,7 @@ export function createDesktop(container) {
 
     const windows = [
       { id: 1, 
+        name: 'welcoming page',
         content: `
         <h1>welcome to my portfolio, <b>User</b>!</h1>
         <section class="layout">
@@ -50,6 +42,7 @@ export function createDesktop(container) {
         draggable: true },
       {
         id: 2, 
+        name: 'updates',
         content: `
         <h1>Updates:</h1>
         <h4>This will contain any updates to this specific program.</h4>
