@@ -5,7 +5,7 @@ export function createFolder(container, folder) {
   folderElem.className = 'folder';
 
   const img = document.createElement('img');
-  img.src = 'folder-icon.png';
+  img.src = folder.icon || 'default-folder-icon.png';
   folderElem.appendChild(img);
 
   const span = document.createElement('span');

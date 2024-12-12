@@ -5,10 +5,6 @@ export function createWindow(container, windowData) {
   windowElem.className = `window ${windowData.draggable ? 'draggable': ''}`;
   windowElem.id = `window-${windowData.name}`
 
-  /*windowElem.className = 'window';
-  windowElem.id = `window-${name}`;
-  windowElem.className = `window ${window.draggable ? 'draggable' : ''}`;*/
-
   if (windowData.draggable) {
     const header = document.createElement('div');
     header.className = 'window-header';
@@ -44,7 +40,7 @@ export function createWindow(container, windowData) {
           start(event) {
             console.log('Drag started');
             // Any initialization you want to do when dragging starts
-            windowElem.style.opacity = '0.7'; // Example: Change opacity
+            windowElem.style.opacity = '0.80'; 
           },
           move(event) {
             const target = event.target;

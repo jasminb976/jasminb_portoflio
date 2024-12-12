@@ -7,30 +7,43 @@ export function createDesktop(container) {
   desktop.className = 'desktop';
   container.appendChild(desktop);
 
-  createLoadingScreen(desktop, () => {
+  const mainContent = document.createElement('div');
+  mainContent.className = 'main-content';
+  desktop.appendChild(mainContent);
+
+  createLoadingScreen(mainContent, () => {
     const folders = [
       { id: 1, 
         name: 'About Me', 
-        content:`<p>hello</p>` },
+        icon: 'me-icon.png',
+        content:`i am a student :P` },
       { id: 2, 
         name: 'Projects', 
-        content:`hello` },
+        icon: 'project-icon.png',
+        content:`i make very kewl projects` },
       { id: 3, 
         name: 'Blog', 
-        content:`hello` },
+        icon: 'blog-icon.png',
+        content:`today i ate a chezburger` },
       { id: 4, 
         name: 'Media', 
-        content:`hello` },
+        icon: 'media-icon.png',
+        content:`laufey + w2e + paris match + tommyfebruary6 = <3` },
       { id: 5, 
-        name: 'Contact Me', 
-        content:`hello` },
+        name: 'Contact', 
+        icon: 'contact-icon.png',
+        content:`call me, beep me when you wanna reach me :o` },
     ];
 
-    folders.forEach(folder => createFolder(desktop, folder));
+    const folderContainer = document.createElement('div');
+    folderContainer.className = 'container';
+    desktop.appendChild(folderContainer);
+    folders.forEach(folder => createFolder(folderContainer, folder));
 
     const windows = [
       { id: 1, 
         name: 'welcoming page',
+        icon: 'welcome-icon.png',
         content: `
         <h1>welcome to my portfolio, <b>User</b>!</h1>
         <section class="layout">
@@ -43,6 +56,7 @@ export function createDesktop(container) {
       {
         id: 2, 
         name: 'updates',
+        icon: 'update-icon.png',
         content: `
         <h1>Updates:</h1>
         <h4>This will contain any updates to this specific program.</h4>
@@ -51,7 +65,7 @@ export function createDesktop(container) {
       }
     ];
 
-    windows.forEach(window => createWindow(desktop, window));
+    windows.forEach(window => createWindow(mainContent, window));
 
     //Taskbar
     const taskbar = document.createElement('div');
@@ -61,7 +75,7 @@ export function createDesktop(container) {
     //Power Button
     const powerButton = document.createElement('button');
     powerButton.className = 'power-button';
-    powerButton.innerText = '⃝';
+    powerButton.innerText = '◉';
     taskbar.appendChild(powerButton);
 
     //Power Button Options
@@ -80,12 +94,12 @@ export function createDesktop(container) {
 
     // Event Listeners for Power Menu Options 
     document.getElementById('open-welcome').addEventListener('click', () => { 
-      createWindow(desktop, windows[0]); 
+      createWindow(mainContent, windows[0]); 
       powerMenu.style.display = 'none';
     }); 
 
     document.getElementById('open-updates').addEventListener('click', () => { 
-      createWindow(desktop, windows[1]); 
+      createWindow(mainContent, windows[1]); 
       powerMenu.style.display = 'none';
     }); 
     
@@ -120,7 +134,7 @@ function shutDownDesktop(_desktop) {
   let shakeCount = 0; 
   const shakeListener = () => { 
     shakeCount += 1; 
-    if (shakeCount > 20) { 
+    if (shakeCount > 40) { 
       document.body.removeChild(shutdownOverlay); 
       window.removeEventListener('mousemove', shakeListener); 
     } 
