@@ -2,7 +2,7 @@ import interact from 'interactjs';
 
 export function createWindow(container, windowData) {
   const windowElem = document.createElement('div');
-  windowElem.className = `window ${windowData.draggable ? 'draggable': ''}`;
+  windowElem.className = `window ${windowData.className || ''} ${windowData.draggable ? 'draggable' : ''}`
   windowElem.id = `window-${windowData.name}`
 
   if (windowData.draggable) {

@@ -14,25 +14,67 @@ export function createDesktop(container) {
   createLoadingScreen(mainContent, () => {
     const folders = [
       { id: 1, 
-        name: 'About Me', 
-        icon: 'me-icon.png',
-        content:`i am a student :P` },
+        name: 'about Me', 
+        icon: 'about-folder-icon.png',
+        content:`
+        <h1>hello there!</h1>
+        <img src="ac-avatar.png" class="avatarImg">
+        <p>It's <b>Jasmin</b>! A CUNY Hunter student majoring in media studies and minoring in Computer Science based in New York City. I am 
+          interested in challenging myself to gain new knowledges and developing my creativity in fun designs.
+        </p> 
+        `, 
+        className: 'window-me'},
       { id: 2, 
-        name: 'Projects', 
-        icon: 'project-icon.png',
-        content:`i make very kewl projects` },
+        name: 'projects', 
+        icon: 'project-folder-icon.png',
+        content:`
+        <section class="projects-section"> 
+          <div class="projects-container"> 
+            <div class="project-card"> 
+              <img src="project1.jpg" alt="Project 1"> 
+              <div class="project-info"> 
+              <h3>Project Title 1</h3> 
+              <p>Short description of the project and what it entails.</p> 
+              <div class="buttons"> <a href="https://live-site-link.com" target="_blank" class="btn">Live Site</a> <a href="https://github.com/repo-link" target="_blank" class="btn">Repository</a> </div>
+            </div> 
+          </div> 
+          <div class="project-card"> 
+            <img src="project2.jpg" alt="Project 2"> 
+            <div class="project-info"> 
+              <h3>Project Title 2</h3> 
+              <p>Short description of the project and what it entails.</p>
+              <div class="buttons"> <a href="https://live-site-link.com" target="_blank" class="btn">Live Site</a> <a href="https://github.com/repo-link" target="_blank" class="btn">Repository</a> </div> 
+            </div>
+          </div> 
+          <div class="project-card"> 
+            <img src="project3.jpg" alt="Project 3"> 
+            <div class="project-info"> 
+              <h3>Project Title 3</h3> 
+              <p>Short description of the project and what it entails.</p>
+              <div class="buttons"> <a href="https://live-site-link.com" target="_blank" class="btn">Live Site</a> <a href="https://github.com/repo-link" target="_blank" class="btn">Repository</a> </div> 
+            </div> 
+          </div>
+        `,
+        className: 'window-projects'
+      },
       { id: 3, 
-        name: 'Blog', 
-        icon: 'blog-icon.png',
-        content:`today i ate a chezburger` },
+        name: 'blog', 
+        icon: 'blog-folder-icon.png',
+        content:`today i ate a chezburger`,
+        className: 'window-blog'
+       },
       { id: 4, 
-        name: 'Media', 
-        icon: 'media-icon.png',
-        content:`laufey + w2e + paris match + tommyfebruary6 = <3` },
+        name: 'media', 
+        icon: 'media-folder-icon.png',
+        content:`laufey + w2e + paris match + tommyfebruary6 = <3`,
+        className: 'window-media'
+      },
       { id: 5, 
-        name: 'Contact', 
-        icon: 'contact-icon.png',
-        content:`call me, beep me when you wanna reach me :o` },
+        name: 'contact', 
+        icon: 'contact-folder-icon.png',
+        content:`call me, beep me when you wanna reach me :o`, 
+        className: 'window-contact'
+      },
     ];
 
     const folderContainer = document.createElement('div');
@@ -42,26 +84,34 @@ export function createDesktop(container) {
 
     const windows = [
       { id: 1, 
-        name: 'welcoming page',
+        name: 'welcome!',
         icon: 'welcome-icon.png',
         content: `
-        <h1>welcome to my portfolio, <b>User</b>!</h1>
-        <section class="layout">
-          <div><p>It's <b>Jasmin</b>! A Hunter student majoring in media studies and minoring in Computer Science based in New York City. I am interested in challenging myself
-        to gain new knowledges and developing my creativity in fun designs. </p></div>
-          <div><img src="toroCat.jpg" width="100px" class="mainImg"> </div>
-        </section> 
+        <h1>welcome to my portfolio
+        <br><b>User</b>!</h1>
+        <div class="layout">
+          <div><p>hello there! welcome to my site! i hope you enjoy your stay as you see my progress as a designer and developer through my projects and this website 𝜗𝜚</p></div>
+          <div><img src="rollingCat.gif" width="80px" class="mainImg"> </div>
+        </div> 
         `, 
-        draggable: true },
+        draggable: true,
+        className: 'window-welcome'
+      },
       {
         id: 2, 
         name: 'updates',
         icon: 'update-icon.png',
         content: `
-        <h1>Updates:</h1>
-        <h4>This will contain any updates to this specific program.</h4>
+        <div class="updt">
+        <b>dec 12:</b> aligned the icons to the left and made the icons to the left and made the icons responsive + increased the number of mouse movements it takes to "wake up" the screen after the laptop is shutdown <br>
+        <b>dec 10:</b> added the taskbar at the bottom of the site and implemented a new feature (the power button) allowing to open back up the update + welcoming page and allow the user to "shutdown" the site and open back up by shaking their mouse. further optimized the code in order to allow different content in a different window tab as well as allowed each window tab to have a name in accordance to their folder name, and finally deployed this project through Netlify <br>
+        <b>nov 30:</b> created the basic structure of this portfolio/personal website, including the creation of the vue.js environment and file structure. trying to make a custom cursor, update the content to each folder, updating the main title for each folder, and working on creating the taskbar for the laptop screen. fully created a github repository for this project <br>
+        <b>nov 13 - nov 20:</b> created a design pitch with a mind map (using octopus.do) and a low-fidelity wireframe (using figma) along with color palettes and fonts <br>
+        <b>nov 06 - nov 13:</b> started brainstorming, planning, and design the idea of this portfolio
+        </div>
         `,
-        draggable: true
+        draggable: true,
+        className: 'window-updates'
       }
     ];
 
@@ -141,6 +191,3 @@ function shutDownDesktop(_desktop) {
   }; 
   window.addEventListener('mousemove', shakeListener);
 }
-
-
-

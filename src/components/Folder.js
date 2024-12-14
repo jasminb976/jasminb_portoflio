@@ -13,9 +13,13 @@ export function createFolder(container, folder) {
   folderElem.appendChild(span);
 
   folderElem.addEventListener('click', () => {
-    createWindow(container, { name: folder.name, content: folder.content, draggable: true });
+    createWindow(container, { 
+      name: folder.name, 
+      content: folder.content, 
+      draggable: true, 
+      className: folder.className || '',
+    });
   });
 
   container.appendChild(folderElem);
 }
- 

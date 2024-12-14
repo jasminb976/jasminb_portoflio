@@ -11,12 +11,12 @@ export function createLoadingScreen(container, onLoadComplete) {
   //Text - Name 
     const textElement = document.createElement('div');
     textElement.className = 'text-element';
-    textElement.innerText = 'Jasmin Bonilla'
+    textElement.innerText = '❀Jasmin Bonilla❀'
   
   //Password Input
     const input = document.createElement('input');
     input.type = 'password';
-    input.placeholder = 'Enter Password';
+    input.placeholder = 'Enter Password...';
     input.addEventListener('keyup', (e) => {
       if (e.key === 'Enter') {
         container.removeChild(loadingScreen);

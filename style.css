@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=VT323&display=swap');
 
-body {
+  body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #F8B0C8;
     color: black;
-    cursor: url('pinkCursor.png'), auto;
+    cursor: url('public/pinkCursor.png'), auto;
   }
 
-  /*Loading Screen: Password Input + Profile Picture + Name*/
+/*Loading Screen: Password Input + Profile Picture + Name*/
   .loading-screen {
     display: flex;
     flex-direction: column;
@@ -61,7 +61,8 @@ body {
     justify-content: center;
     text-align: center;
   }
-  /*folders*/
+
+/*Folders*/
   .container{
     display: grid;
     gap: 20px;
@@ -80,13 +81,30 @@ body {
     width: 75px;
     height: 75px;
   }
+
+/*Window Tabs*/
   .window {
     position: absolute;
     border: 5px solid #AF7F73;
     background-color: #F9D0DE;
     animation: fadeIn 0.5s;
-    width:600px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  .window-welcome{width: 600px;}
+
+  .window-updates{
+    width: 250px;
+    height: 600px}
+
+  .window-me{
+    width: 450px;
+  }
+
+  .window-projects{
+    width: 700px;
+    height: 600px;
   }
 
   .window-header{
@@ -104,7 +122,7 @@ body {
   }
 
   .close-btn{
-    font-family: 'Arial', sans-serif;
+    font-family: "Arial", sans-serif;
     font-size: 16px;
     background: none;
     cursor: pointer;
@@ -112,8 +130,26 @@ body {
 
   .window-content{
     padding: 20px;
+    height: 85%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #AF7F73 #F9D0DE;
   }
 
+  .window-content::-webkit-scrollbar{
+    width: 10px;
+  }
+  .window-content::-webkit-scrollbar-track{
+    background: #F9D0DE;
+  }
+
+  .window-content::-webkit-scrollbar-thumb{
+    background-color: #AF7F73;
+    border-radius: 10px;
+    border: 2px solid #F9D0DE
+  }
+
+/*Power Button + Taskbar*/
   .taskbar{
     position: absolute;
     bottom: 0; 
@@ -151,6 +187,7 @@ body {
     padding: 10px; 
     border-radius: 5px; 
     z-index: 200;
+    width: 150px;
   } 
 
   .power-menu button { 
@@ -166,28 +203,121 @@ body {
      background-color: #AF7F73;
   }
 
-/*Welcoming Tab*/
-.layout {
-  width: 100%;
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-}
+/*Exclusively only layouts*/
+  .layout {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
 
+/*Update Window Tab*/
+  .updt{
+    text-align: center;
+    color:black;
+    font-size: 15px;
+    font-family: "Baloo 2", sans-serif;
+  }
+
+/*Projects section*/
+  .projects-section{ 
+    padding: 20px; 
+    text-align: center;
+  } 
+
+  .projects-section h1{ 
+    font-size: 40px;
+    margin-top: 10px; 
+    margin-bottom: 15px; 
+  } 
+
+  .projects-container{ 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
+  } 
+
+  .project-card { 
+    background-color: white; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    /*max-width: 100px; */
+    overflow: hidden; 
+    text-align: left; 
+    transition: transform 0.2s; 
+  } 
+
+  .project-card:hover{ transform: translateY(-10px); } 
+
+  .project-card img{ 
+    width: 100%; 
+    height: auto; 
+  } 
+
+  .project-info{ padding: 5px; } 
+
+  .project-info h3{ 
+    /*margin: 0 0 10px;*/ 
+    font-size: 30px; 
+  } 
+
+  .project-info p{ 
+    margin: 0; 
+    color: #AF7F73;
+  }
+
+  .buttons{ 
+    margin-top: 5px;
+    margin-left: 25%;
+  } 
+  
+  .btn{ 
+    display: inline-block; 
+    padding: 10px 15px; 
+    margin: 8px; 
+    border: none; 
+    border-radius: 10px; 
+    background-color: #AF7F73; 
+    color: white; 
+    text-decoration: none; 
+    font-size: 15px; 
+    transition: background-color 0.3s; 
+  } 
+  
+  .btn:hover { background-color: #F8B0C8;}
+
+/*Text + Image Styling*/
 h1{
   text-align: center;
   color:#F790B2;
   font-family: 'VT323', monospace;
   font-size: 45px;
 }
+
+h3{
+  text-align: center;
+  color: #F790B2;
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+}
+
 p{
-  margin-left:30px;
+  /*margin-left:30px;*/
+  font-size: 20px;
   font-family: "Baloo 2", sans-serif;
 }
+
 .mainImg{
-  width: 250px;
-  height: 280px;
+  width: 200px;
+  height: 200px;
+}
+
+.avatarImg{
+  max-width: 45%; 
+  height: auto;
+  margin-left: 25%;
 }
 
 /*Responsive Design*/
