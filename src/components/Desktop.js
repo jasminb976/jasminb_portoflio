@@ -66,13 +66,38 @@ export function createDesktop(container) {
       { id: 4, 
         name: 'media', 
         icon: 'media-folder-icon.png',
-        content:`laufey + w2e + paris match + tommyfebruary6 = <3`,
+        content:`
+         MUSIC PLAYER
+        `,
         className: 'window-media'
       },
       { id: 5, 
         name: 'contact', 
         icon: 'contact-folder-icon.png',
-        content:`call me, beep me when you wanna reach me :o`, 
+        content:`
+        <h2>Thank you for viewing my website/portfolio!</h2>
+        <p class="lol">For collaboration inquiries, please contact me by emailing <b>jb123@hotmail.com</b></p>
+        
+        <h2>If you just want to drop a quick message, sign the guestbook down below!</h2>
+        <div class="guestbook-section">
+        <form id="guestbookForm"> 
+          <div class="form-group"> 
+            <label for="name">Name:</label> 
+              <input type="text" id="guestName" name="name" required> 
+          </div> 
+          <div class="form-group"> 
+            <label for="message">Message:</label> 
+            <textarea id="guestMessage" name="message" rows="3" required></textarea> 
+          </div> 
+          <div class="form-group"> 
+            <label for="message">Song Recs?:</label> 
+            <textarea id="guestMessage" name="message" rows="1" optional></textarea> 
+          </div>
+          <button class="submit" type="submit">Sign</button> 
+        </form> 
+        <div id="guestbookEntries" class="guestbook-entries"></div>
+        </div>
+        `, 
         className: 'window-contact'
       },
     ];
@@ -90,7 +115,7 @@ export function createDesktop(container) {
         <h1>welcome to my portfolio
         <br><b>User</b>!</h1>
         <div class="layout">
-          <div><p>hello there! welcome to my site! i hope you enjoy your stay as you see my progress as a designer and developer through my projects and this website 𝜗𝜚</p></div>
+          <div><p>hello there! welcome to my site! i hope you enjoy your stay as you see my progress as a designer and developer through my projects and this website</p></div>
           <div><img src="rollingCat.gif" width="80px" class="mainImg"> </div>
         </div> 
         `, 
@@ -156,7 +181,42 @@ export function createDesktop(container) {
     document.getElementById('shut-down').addEventListener('click', () => { 
       shutDownDesktop(desktop);
       powerMenu.style.display = 'none'; 
-    }); 
+    });
+
+    //Music Player
+    
+    //GuestBook
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('JavaScript file loaded');
+    
+      const form = document.getElementById('guestbookForm');
+      const guestbookEntries = document.getElementById('guestbookEntries');
+    
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+    
+        // Retrieve form data
+        const guestName = document.getElementById('guestName').value;
+        const guestMessage = document.getElementById('guestMessage').value;
+    
+        console.log('Form submitted:', { guestName, guestMessage });
+    
+        // Create new entry element
+        const entry = document.createElement('div');
+        entry.className = 'guestbook-entry';
+        entry.innerHTML = `<strong>${guestName}:</strong><p>${guestMessage}</p>`;
+    
+        // Add new entry to the guestbook
+        guestbookEntries.appendChild(entry);
+    
+        // Clear form fields
+        form.reset();
+    
+        console.log('New entry added:', entry);
+      });
+    });
+    
+    
   }); 
 } 
 
