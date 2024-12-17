@@ -67,7 +67,7 @@ export function createDesktop(container) {
         name: 'media', 
         icon: 'media-folder-icon.png',
         content:`
-         MUSIC PLAYER
+         <div id="audio-container"></div> <!-- Ensure this div exists -->
         `,
         className: 'window-media'
       },
@@ -76,27 +76,14 @@ export function createDesktop(container) {
         icon: 'contact-folder-icon.png',
         content:`
         <h2>Thank you for viewing my website/portfolio!</h2>
-        <p class="lol">For collaboration inquiries, please contact me by emailing <b>jb123@hotmail.com</b></p>
+        <p>For collaboration inquiries, please contact me by emailing <b>jb123@hotmail.com</b></p>
         
         <h2>If you just want to drop a quick message, sign the guestbook down below!</h2>
-        <div class="guestbook-section">
-        <form id="guestbookForm"> 
-          <div class="form-group"> 
-            <label for="name">Name:</label> 
-              <input type="text" id="guestName" name="name" required> 
-          </div> 
-          <div class="form-group"> 
-            <label for="message">Message:</label> 
-            <textarea id="guestMessage" name="message" rows="3" required></textarea> 
-          </div> 
-          <div class="form-group"> 
-            <label for="message">Song Recs?:</label> 
-            <textarea id="guestMessage" name="message" rows="1" optional></textarea> 
-          </div>
-          <button class="submit" type="submit">Sign</button> 
-        </form> 
-        <div id="guestbookEntries" class="guestbook-entries"></div>
+        <div class="form-wrapper">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfLuERp6UzgNk3JHBy6N7rOGi6_pZ3cNpEIeCkLY3Dyb6Oovw/viewform?embedded=true" width="640" height="715" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
         </div>
+        <p>Responses:</p>
+        <div id="responses"></div>
         `, 
         className: 'window-contact'
       },
@@ -184,39 +171,153 @@ export function createDesktop(container) {
     });
 
     //Music Player
-    
+    const musicPlayerScript = document.createElement('script');
+    musicPlayerScript.innerHTML = `
+      window.onload = function() {
+        // Ensure the audio container exists
+        const container = document.getElementById('audio-container');
+        if (!container) {
+          console.error('Audio container not found!');
+          return;
+        }
+
+        const audioFiles = [
+          { title: 'Lonely in Gorgeous', path: 'lonely.mp3' },
+          { title: 'bad.', path: 'bad.mp3' }
+        ];
+
+        let currentTrackIndex = 0;
+        const audio = document.createElement('audio');
+        audio.id = 'audio';
+        audio.preload = 'metadata';
+
+        const audioSource = document.createElement('source');
+        audioSource.id = 'audio-source';
+        audioSource.type = 'audio/mp3';
+        audio.appendChild(audioSource);
+
+        container.appendChild(audio);
+
+        const playPauseButton = document.createElement('button');
+        playPauseButton.id = 'play-pause';
+        playPauseButton.textContent = 'Play';
+        container.appendChild(playPauseButton);
+
+        const prevButton = document.createElement('button');
+        prevButton.id = 'prev';
+        prevButton.textContent = 'Previous';
+        container.appendChild(prevButton);
+
+        const nextButton = document.createElement('button');
+        nextButton.id = 'next';
+        nextButton.textContent = 'Next';
+        container.appendChild(nextButton);
+
+        // Function to load and play the current track
+        function loadTrack() {
+          const track = audioFiles[currentTrackIndex];
+          
+          // Pause the audio before changing the source
+          if (!audio.paused) {
+            audio.pause();
+          }
+
+          // Update the audio source
+          audioSource.src = track.path;
+          
+          // Load the new audio source
+          audio.load();
+
+          // Play the new track
+          audio.play().then(() => {
+            // Successfully started playing the audio
+            console.log('Playing: ', track.title);
+            playPauseButton.textContent = 'Pause';
+          }).catch(error => {
+            console.error('Error trying to play audio:', error);
+          });
+        }
+
+        // Function to toggle play/pause
+        playPauseButton.addEventListener('click', function() {
+          if (audio.paused) {
+            audio.play();
+            playPauseButton.textContent = 'Pause';
+          } else {
+            audio.pause();
+            playPauseButton.textContent = 'Play';
+          }
+        });
+
+        // Functions for previous and next track
+        prevButton.addEventListener('click', function() {
+          currentTrackIndex = (currentTrackIndex - 1 + audioFiles.length) % audioFiles.length;
+          loadTrack();
+        });
+
+        nextButton.addEventListener('click', function() {
+          currentTrackIndex = (currentTrackIndex + 1) % audioFiles.length;
+          loadTrack();
+        });
+
+        // Initial Track Load
+        loadTrack();
+      };
+    `;
+    document.body.appendChild(musicPlayerScript);
+
     //GuestBook
-    document.addEventListener('DOMContentLoaded', () => {
-      console.log('JavaScript file loaded');
+    const script = document.createElement('script');
+script.innerHTML = `
+  setTimeout(function() {
+    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQukf_AzwlX4NyQig6R1xQKuuguR770Wb8usXC5viWmxOARGnA2baKo-fcyzmPiR06rFAoQ3bZ_4Ej_/pub?gid=773105761&single=true&output=csv';
+    console.log('CSV URL:', csvUrl);
     
-      const form = document.getElementById('guestbookForm');
-      const guestbookEntries = document.getElementById('guestbookEntries');
-    
-      form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-    
-        // Retrieve form data
-        const guestName = document.getElementById('guestName').value;
-        const guestMessage = document.getElementById('guestMessage').value;
-    
-        console.log('Form submitted:', { guestName, guestMessage });
-    
-        // Create new entry element
-        const entry = document.createElement('div');
-        entry.className = 'guestbook-entry';
-        entry.innerHTML = `<strong>${guestName}:</strong><p>${guestMessage}</p>`;
-    
-        // Add new entry to the guestbook
-        guestbookEntries.appendChild(entry);
-    
-        // Clear form fields
-        form.reset();
-    
-        console.log('New entry added:', entry);
+    fetch(csvUrl)
+      .then(response => {
+        console.log('Fetch successful, response received:', response);
+        return response.text();
+      })
+      .then(csvData => {
+        console.log('CSV Data:', csvData);
+        const rows = csvData.split('\\n');
+        const responsesContainer = document.getElementById('responses');
+        
+        if (!responsesContainer) {
+          console.error('Responses container not found!');
+          return;
+        }
+
+        rows.forEach((row, index) => {
+          if (index > 0) { // Skip the header row
+            const columns = row.split(',');
+            const timestamp = columns[0];
+            const songRecs = columns[1];
+            const name = columns[2];
+            const message = columns[3];
+            
+            console.log({ timestamp, songRecs, name, message });
+
+            const entry = document.createElement('div');
+            entry.classList.add('entry');
+            entry.innerHTML = \`
+              <p><em>\${timestamp}</em></p>
+              <p><strong>\${name}</strong> says:</p>
+              <p>\${message}</p>
+              <p><em>Song recs: \${songRecs}</em></p>
+            \`;
+            responsesContainer.appendChild(entry);
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching CSV data:', error);
       });
-    });
-    
-    
+  }, 4000);
+`;
+
+document.body.appendChild(script);
+
   }); 
 } 
 
@@ -224,7 +325,7 @@ export function createDesktop(container) {
 function shutDownDesktop(_desktop) { 
   const shutdownOverlay = document.createElement('div'); 
   shutdownOverlay.className = 'shutdown-overlay'; 
-  shutdownOverlay.innerText = 'Shake your mouse to wake up the desktop'; 
+  shutdownOverlay.innerText = '…ᘛ⁐̤ᕐᐷ move your mouse!'; 
   document.body.appendChild(shutdownOverlay); 
 
   // Darkens the screen 
@@ -235,6 +336,8 @@ function shutDownDesktop(_desktop) {
   shutdownOverlay.style.height = '100%'; 
   shutdownOverlay.style.backgroundColor = 'rgba(0, 0, 0, 1)'; 
   shutdownOverlay.style.color = 'white';
+  shutdownOverlay.style.fontFamily = 'VT323', 'monospace';
+  shutdownOverlay.style.fontSize = '40px';
   shutdownOverlay.style.display = 'flex'; 
   shutdownOverlay.style.alignItems = 'center'; 
   shutdownOverlay.style.justifyContent = 'center'; 
@@ -244,7 +347,7 @@ function shutDownDesktop(_desktop) {
   let shakeCount = 0; 
   const shakeListener = () => { 
     shakeCount += 1; 
-    if (shakeCount > 40) { 
+    if (shakeCount > 35) { 
       document.body.removeChild(shutdownOverlay); 
       window.removeEventListener('mousemove', shakeListener); 
     } 

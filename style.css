@@ -11,37 +11,46 @@
   }
 
 /*Loading Screen: Password Input + Profile Picture + Name*/
-  .loading-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 50vh;
-    background-color: #AF7F73;
-  }
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 400px;
+  background-color: #AF7F73;
+}
 
-  .profile-pic{
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-  }
+.profile-pic {
+  width: 200px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
 
-  .loading-screen input{
-    margin-top: 20px;
-    padding: 10px;
-    font-size: 16px;
-    width: 80%;
-    max-width: 300px;
-    box-sizing: border-box;
-  }
+.text-element {
+  font-size: 35px;
+  margin-bottom: 20px;
+  font-family: 'VT323', monospace;
+  color:#F8B0C8;
+}
 
-  .text-element{
-    font-family: 'VT323', monospace;
-    font-size: 40px;
-    margin-top: 10px;
-    color: #F9D0DE;
-  }
+.typing-form {
+  display: flex;
+  justify-content: center;
+}
+
+.typing-input {
+  font-size: 25px;
+  padding: 6px;
+  border: 2px solid #F790B2;
+  background-color: #F9D0DE;
+  color: #AF7F73;
+  border-radius: 10px;
+  outline: none;
+  width: 200px;
+  text-align: center;
+  caret-color: #AF7F73;
+}
 
 /*Standard CSS for Homescreen*/
   .desktop {
@@ -300,51 +309,97 @@
 /* music player container START */
 
 
-/*Guestbook*/
+/*Guestbook - Form*/
 b{
   color:#F790B2;
 }
 
-.guestbook-section {
-  padding: 10px;
-  background-color: #F9D0DE;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+iframe {
+  border: none; /* Remove the default border */
+  width: 80%; /* Make it full width */
+  height: 600px; /* Adjust height to fit your design */
 }
 
-.guestbook-section h2 {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #AF7F73;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 95%;
-  padding: 10px;
-  border: 1px solid #F8B0C8;
-  border-radius: 5px;
+.form-wrapper { /* Optional: Use flexbox or grid to align the form content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  background-color: #F9D0DE;
-  color:#AF7F73;
+  padding: 20px;
 }
 
-.guestbook-entries {
-  margin-top: 20px;
+iframe[src="google.com"] { /* Optional: Hide the Google header and footer */
+  display: block;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.guestbook-entry {
-  padding: 10px;
-  border-bottom: 1px solid #F790B2;
+/*Guestbook - Responses*/
+#responses {/* Container for responses */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 15px;
+  max-height: 500px;
+  overflow-y: scroll; /*Make the responses scrollable */
+  /*background-color: #f5f5f5;*/
+}
+
+.entry {/* Style individual message bubbles */
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: #F8B0C8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  align-self:self-end;
+  text-align: right;
+}
+
+.entry strong {/* Sender*/
+  color: #AF7F73;
+  font-size: 30px;
+  font-family: 'VT323', monospace;
+}
+
+.entry p {/* The message content itself */
+  font-size: 24px;
+  color: #F9D0DE;
+  margin: 5px 0;
+  font-family: 'Baloo 2', sans-serif;
+}
+
+.entry em {/* Timestamp and Song Recommendations */
+  font-size: 18px;
+  color: #F9D0DE;
+  font-family: 'VT323', monospace;
+}
+
+.entry.system {/* Differentiate system's messages (you can adjust the styling for your own messages) */
+  align-self: flex-start;
+  background-color: #e0f7fa; /* Light blue for system messages */
+}
+
+.entry.user {
+  align-self: flex-end;
+  background-color: #d1c4e9; /* Light purple for user messages */
+}
+
+#responses::-webkit-scrollbar {/* Optional: Add some custom scroll styles */
+  width: 6px;
+}
+
+#responses::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+#responses::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
 /*Text + Image Styling*/
