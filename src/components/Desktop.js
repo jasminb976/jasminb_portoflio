@@ -78,7 +78,7 @@ export function createDesktop(container) {
           <div class="screen"> 
             <h3>Lonely in Gorgeous</h3> 
             <audio controls> 
-              <source src="./src/components/lonely.mp3" type="audio/mpeg">
+              <source src="/src/components/lonely.mp3" type="audio/mpeg">
             </audio> 
             <div class="caption"> Artist: Tommy February6</div> 
           </div>
@@ -223,7 +223,7 @@ export function createDesktop(container) {
       const blogContainer = document.querySelector('.blog-container');
       if (blogContainer) {
         clearInterval(checkInterval);  // <---- Stops the interval once the container is found
-        fetch('./src/components/posts.json') // <---- Fetches and renders the blog posts
+        fetch('/src/components/posts.json') // <---- Fetches and renders the blog posts
           .then(response => response.json())
           .then(posts => {
             posts.forEach(post => {
