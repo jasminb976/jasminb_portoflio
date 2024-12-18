@@ -7,6 +7,8 @@ export function createDesktop(container) {
   desktop.className = 'desktop';
   container.appendChild(desktop);
 
+  //Stickers
+
   const mainContent = document.createElement('div');
   mainContent.className = 'main-content';
   desktop.appendChild(mainContent);
@@ -31,27 +33,27 @@ export function createDesktop(container) {
         <section class="projects-section"> 
           <div class="projects-container"> 
             <div class="project-card"> 
-              <img src="project1.jpg" alt="Project 1"> 
+              <img src="/webProgramming.png" alt="Project 1"> 
               <div class="project-info"> 
-              <h3>Project Title 1</h3> 
-              <p>Short description of the project and what it entails.</p> 
-              <div class="buttons"> <a href="https://live-site-link.com" target="_blank" class="btn">Live Site</a> <a href="https://github.com/repo-link" target="_blank" class="btn">Repository</a> </div>
+              <h3>web programming class portfolio</h3> 
+              <p>a website that holds all my work for my web programming class</p> 
+              <div class="buttons"> <a href="https://jasminb976.github.io./index.html" target="_blank" class="btn">Live Site</a> <a href="https://github.com/jasminb976/jasminb976.github.io" target="_blank" class="btn">Repository</a> </div>
             </div> 
           </div> 
           <div class="project-card"> 
-            <img src="project2.jpg" alt="Project 2"> 
+            <img src="laufeyFansite.png" alt="Project 2"> 
             <div class="project-info"> 
-              <h3>Project Title 2</h3> 
-              <p>Short description of the project and what it entails.</p>
-              <div class="buttons"> <a href="https://live-site-link.com" target="_blank" class="btn">Live Site</a> <a href="https://github.com/repo-link" target="_blank" class="btn">Repository</a> </div> 
+              <h3>Laufey Fansite</h3> 
+              <p>a fansite website that uses an API to randomly call for Laufey song lyrics</p>
+              <div class="buttons"> <a href="https://coding-practice3.netlify.app/" target="_blank" class="btn">Live Site</a> </div> 
             </div>
           </div> 
           <div class="project-card"> 
-            <img src="project3.jpg" alt="Project 3"> 
+            <img src="gourmetHub.png" alt="Project 3"> 
             <div class="project-info"> 
-              <h3>Project Title 3</h3> 
-              <p>Short description of the project and what it entails.</p>
-              <div class="buttons"> <a href="https://live-site-link.com" target="_blank" class="btn">Live Site</a> <a href="https://github.com/repo-link" target="_blank" class="btn">Repository</a> </div> 
+              <h3>Gourmet Hub</h3> 
+              <p>a recipe finder website that uses the mealDB api to call for the recipes</p>
+              <div class="buttons"> <a href="https://sumptuous-buttery-orbit.glitch.me" target="_blank" class="btn">Live Site</a> <a href="https://glitch.com/edit/#!/sumptuous-buttery-orbit" target="_blank" class="btn">Glitch Code</a> </div> 
             </div> 
           </div>
         `,
@@ -61,7 +63,6 @@ export function createDesktop(container) {
         name: 'blog', 
         icon: 'blog-folder-icon.png',
         content:`
-        <h2> b l o g </h2>
         <div class="blog-container" id="blog-container">
           <!-- Blog posts will be rendered here -->
         </div>
@@ -91,14 +92,25 @@ export function createDesktop(container) {
           </div> 
         </div>
         <div>
-          <h2>Favorite Music Artists: </h2>
+          <h2>my fav music artists: </h2>
           <section class="column">
-            <div><img src="tommyFebruary6.jpg" class ="musicArtist"></div>
-            <div><img src="w2e.jpg" class ="musicArtist"></div>
-            <div><img src="marinaAndtheDiamonds.jpg" class ="musicArtist"></div>
-            <div><img src="laufey.jpg" class ="musicArtist"></div>
+            <div><img src="/tommyFebruary6.jpg" class ="musicArtist"></div>
+            <div><img src="/w2e.jpg" class ="musicArtist"></div>
+            <div><img src="/marinaAndtheDiamonds.jpg" class ="musicArtist"></div>
+            <div><img src="/laufey.jpg" class ="musicArtist"></div>
           </section>
         </div>
+      </section>
+      <h2>my fav/current reads: </h2>
+      <section class="bookGrid">
+        <div><img src="/gambler.jpg" class ="book"></div>
+        <div><p class="bookDesc">very good!</p></div>
+        <div><img src="/heaven.jpg" class ="book"></div>
+        <div><p class="bookDesc">in my library</p></div>
+        <div><img src="/theTrial.jpg" class ="book"></div>
+        <div><p class="bookDesc">in my library</p></div>
+        <div><img src="/wonder.jpg" class ="book"></div>
+        <div><p class="bookDesc">my favorite childhood book! read it in elementary school, but i haven't watched the movie</p></div>
       </section>
         `,
         className: 'window-media'
@@ -229,13 +241,22 @@ export function createDesktop(container) {
             posts.forEach(post => {
               const postElement = document.createElement('div');
               postElement.classList.add('post');
-              postElement.innerHTML = `
-                <div class ="blog-post">
+              let postContent = `
+                <div class="blog-post">
                   <h4>${post.date}</h4>
                   <h1>${post.title}</h1>
-                  <p>${post.content}</p>
-                </div>
+                  <section class="postImg">
               `;
+              if (post.images && Array.isArray(post.images)) {
+                post.images.forEach(image => {
+                  console.log(`Image path: ${image}`);
+                  postContent += `<img src="${image}" class="blogImage">`;
+                });
+              }
+              postContent += `</section>`
+              postContent += `<p>${post.content}</p>`;
+              postContent += `</div>`;
+              postElement.innerHTML = postContent;
               blogContainer.appendChild(postElement);
             });
           })
