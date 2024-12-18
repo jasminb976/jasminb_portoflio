@@ -40,7 +40,7 @@ export function createWindow(container, windowData) {
           start(event) {
             console.log('Drag started');
             // Any initialization you want to do when dragging starts
-            windowElem.style.opacity = '0.80'; 
+            windowElem.style.opacity = '0.90'; 
           },
           move(event) {
             const target = event.target;

@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "title": "My First Blog Post",
+      "content": "This is an example of a blog post. You can use this to showcase your thoughts or ideas.",
+      "date": "null"
+    },
+    {
+      "id": 2,
+      "title": "Learning JavaScript",
+      "content": "JavaScript is a versatile programming language that allows you to build interactive websites and web applications.",
+      "date": "null"
+    },
+    {
+      "id": 3,
+      "title": "Vite.js is Awesome",
+      "content": "Vite.js is a modern build tool that provides fast and efficient development workflows. It is fast and easy to use.", 
+      "date": "null"
+    }
+  ]
+  

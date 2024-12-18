@@ -7,7 +7,7 @@
     font-family: Arial, sans-serif;
     background-color: #F8B0C8;
     color: black;
-    cursor: url('public/pinkCursor.png'), auto;
+    cursor: url('./public/pinkCursor.png'), auto;
   }
 
 /*Loading Screen: Password Input + Profile Picture + Name*/
@@ -101,6 +101,11 @@
     cursor: pointer;
   }
 
+  .window-pet{
+    width: 355px;
+    height: 400px;
+    overflow: hidden;
+  }
   .window-welcome{width: 600px;}
 
   .window-updates{
@@ -123,6 +128,11 @@
   .window-contact{
     width: 600px;
     height: 602px;
+  }
+
+  .window-blog{
+    width: 500px;
+    height: 595px;
   }
 
   .window-header{
@@ -306,8 +316,129 @@
   
   .btn:hover{ background-color: #F8B0C8;}
 
-/* music player container START */
+ /*music player container*/
+ .layout {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
 
+.column{
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.musicArtist{
+  width: 90%;
+  height: 90%;
+}
+
+audio {
+  border-radius:25px;
+  width:90%;
+  height:30px;
+  background:#AF7F73;
+  color:white;
+  mix-blend-mode:hard-light;
+  opacity:.4;
+  margin:10px auto
+}
+      
+.ipod {
+  width:200px;
+  height:350px;
+  border:5px #F8B0C8 solid;
+  padding:20px;
+  position:relative;
+  margin:30px;
+  border-radius:25px;
+  background: #F790B2;
+  box-shadow:15px 15px #AF7F73
+}
+
+.screen {
+  overflow: hidden;
+  height:50%;
+  background:#F9D0DE;
+  border-radius:20px;
+  overflow:scroll;
+  outline:2px #F8B0C8 solid;
+  outline-offset:3px;
+  font-family:'ChicagoFLF', 'Chicago', monospace; /* the font used on vintage apple products - feel free to change this if you want something different! */
+  font-size:12px;
+  text-align:center;
+}
+
+/* the bold text - where your song title will go, probably */
+.screen h3 {
+  background: #f9f9f9;
+  color: #F790B2;
+  width:100%;
+  display:block;
+  padding:5px 0px;
+  font-size:20px;
+  margin-top:5px;
+  margin-bottom: 10px;
+  border-top:15px double;
+}
+
+/* the bit under the audio player */
+.screen .caption {
+  padding: 10px 10px;
+}
+
+/* the circular buttons - this bit is just for decoration, really! */
+.button {
+  border:1px double #F9D0DE;
+  background: #f9f9f9;
+  height:40%;
+  aspect-ratio:1 / 1;
+  margin:10% auto;
+  border-radius:50%;
+  overflow:hidden;
+  text-align:center;
+  position:relative;
+}
+.button .b {
+  position:absolute;
+  width:100%;
+  text-align:center;
+  font-weight:bold;
+  color: #AF7F73 !important
+}
+.b.b-top {
+  top:5%;
+  left: 3%;
+  font-size: 25px;
+}
+.b.b-bottom {
+  bottom:5%;
+  left: 3%;
+  font-size:25px;
+}
+.b.b-left {
+  left:3%;
+  top:35%;
+  width:20%;
+  font-size: 25px;
+}
+.b.b-right {
+  right:3%;
+  top: 35%;
+  width:20%;
+  font-size: 25px;
+}
+
+.button .button {
+  height:50%;
+  aspect-ratio:1 / 1;
+  margin:25% auto;
+  background: black;
+}
 
 /*Guestbook - Form*/
 b{
@@ -315,8 +446,8 @@ b{
 }
 
 iframe {
-  border: none; /* Remove the default border */
-  width: 80%; /* Make it full width */
+  border: none;
+  width: 100%; /* Make it full width */
   height: 600px; /* Adjust height to fit your design */
 }
 
@@ -329,7 +460,7 @@ iframe {
 }
 
 iframe[src="google.com"] { /* Optional: Hide the Google header and footer */
-  display: block;
+  display: outside;
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -343,18 +474,18 @@ iframe[src="google.com"] { /* Optional: Hide the Google header and footer */
   padding: 20px;
   gap: 15px;
   max-height: 500px;
-  overflow-y: scroll; /*Make the responses scrollable */
+  /*overflow-y: scroll; Make the responses scrollable */
   /*background-color: #f5f5f5;*/
 }
 
 .entry {/* Style individual message bubbles */
   display: flex;
   flex-direction: column;
-  max-width: 70%;
-  padding: 12px;
-  border-radius: 12px;
-  background-color: #F8B0C8;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #F790B2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   margin-bottom: 10px;
   align-self:self-end;
   text-align: right;
@@ -381,25 +512,31 @@ iframe[src="google.com"] { /* Optional: Hide the Google header and footer */
 
 .entry.system {/* Differentiate system's messages (you can adjust the styling for your own messages) */
   align-self: flex-start;
-  background-color: #e0f7fa; /* Light blue for system messages */
+  background-color: #e0f7fa;
 }
 
 .entry.user {
   align-self: flex-end;
-  background-color: #d1c4e9; /* Light purple for user messages */
+  background-color: #d1c4e9;
 }
 
-#responses::-webkit-scrollbar {/* Optional: Add some custom scroll styles */
-  width: 6px;
+/*Blog Window Tab*/
+.blog-post {
+  margin-bottom: 20px;
 }
 
-#responses::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 10px;
+.blog-post .post-title {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
-#responses::-webkit-scrollbar-track {
-  background: #f1f1f1;
+.blog-post .post-content {
+  margin-top: 10px;
+  font-size: 1em;
+}
+
+.blog-post .like-section {
+  margin-top: 10px;
 }
 
 /*Text + Image Styling*/

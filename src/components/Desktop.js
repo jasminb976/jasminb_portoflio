@@ -60,14 +60,46 @@ export function createDesktop(container) {
       { id: 3, 
         name: 'blog', 
         icon: 'blog-folder-icon.png',
-        content:`today i ate a chezburger`,
+        content:`
+        <h2> b l o g </h2>
+        <div class="blog-container" id="blog-container">
+          <!-- Blog posts will be rendered here -->
+        </div>
+        `,
         className: 'window-blog'
        },
       { id: 4, 
         name: 'media', 
         icon: 'media-folder-icon.png',
         content:`
-         <div id="audio-container"></div> <!-- Ensure this div exists -->
+        <!---Credits to HillHouse---!>
+      <section class="layout">
+        <div class="ipod"> 
+          <div class="screen"> 
+            <h3>Lonely in Gorgeous</h3> 
+            <audio controls> 
+              <source src="./src/components/lonely.mp3" type="audio/mpeg">
+            </audio> 
+            <div class="caption"> Artist: Tommy February6</div> 
+          </div>
+          <div class="button"> 
+            <div class="b b-top">▶</div>
+            <div class="b b-left">⏮︎</div>
+            <div class="b b-right">⏭︎</div>
+            <div class="b b-bottom">❚❚</div> 
+            <divclass="button"></div> 
+          </div> 
+        </div>
+        <div>
+          <h2>Favorite Music Artists: </h2>
+          <section class="column">
+            <div><img src="tommyFebruary6.jpg" class ="musicArtist"></div>
+            <div><img src="w2e.jpg" class ="musicArtist"></div>
+            <div><img src="marinaAndtheDiamonds.jpg" class ="musicArtist"></div>
+            <div><img src="laufey.jpg" class ="musicArtist"></div>
+          </section>
+        </div>
+      </section>
         `,
         className: 'window-media'
       },
@@ -79,11 +111,11 @@ export function createDesktop(container) {
         <p>For collaboration inquiries, please contact me by emailing <b>jb123@hotmail.com</b></p>
         
         <h2>If you just want to drop a quick message, sign the guestbook down below!</h2>
-        <div class="form-wrapper">
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfLuERp6UzgNk3JHBy6N7rOGi6_pZ3cNpEIeCkLY3Dyb6Oovw/viewform?embedded=true" width="640" height="715" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-        </div>
-        <p>Responses:</p>
-        <div id="responses"></div>
+          <div class="form-wrapper">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfLuERp6UzgNk3JHBy6N7rOGi6_pZ3cNpEIeCkLY3Dyb6Oovw/viewform?embedded=true" width="640" height="715" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+          </div>
+          <h2>Responses:</h2>
+          <div id="responses"></div>
         `, 
         className: 'window-contact'
       },
@@ -124,6 +156,16 @@ export function createDesktop(container) {
         `,
         draggable: true,
         className: 'window-updates'
+      },
+      {
+        id: 3,
+        name: 'web-pet',
+        content: `
+        <iframe width="300" height="300" scrolling="no" src="https://gifypet.neocities.org/pet/pet.html?name=cookies&dob=1734495825&gender=f&element=Water&pet=cat.gif&map=forest.jpg&background=&tablecolor=%23529d32&textcolor=black" frameborder="0"></iframe>
+        `,
+        draggable: true,
+        className: 'window-pet'
+
       }
     ];
 
@@ -146,6 +188,7 @@ export function createDesktop(container) {
     powerMenu.innerHTML = `
         <button id="open-welcome">Open Welcome</button>
         <button id="open-updates">Open Updates</button>
+        <button id="open-pet">Open pet</button>
         <button id="shut-down">Shut Down</button>
     `;
     taskbar.appendChild(powerMenu);
@@ -165,114 +208,60 @@ export function createDesktop(container) {
       powerMenu.style.display = 'none';
     }); 
     
+    document.getElementById('open-pet').addEventListener('click', () => { 
+      createWindow(mainContent, windows[2]); 
+      powerMenu.style.display = 'none';
+    });
+
     document.getElementById('shut-down').addEventListener('click', () => { 
       shutDownDesktop(desktop);
       powerMenu.style.display = 'none'; 
     });
 
-    //Music Player
-    const musicPlayerScript = document.createElement('script');
-    musicPlayerScript.innerHTML = `
-      window.onload = function() {
-        // Ensure the audio container exists
-        const container = document.getElementById('audio-container');
-        if (!container) {
-          console.error('Audio container not found!');
-          return;
-        }
+    //BLOG - BLOG - BLOG - BLOG
+    const checkInterval = setInterval(function() {   // <---- Waits for the .blog-container to appear when the user clicks the folder
+      const blogContainer = document.querySelector('.blog-container');
+      if (blogContainer) {
+        clearInterval(checkInterval);  // <---- Stops the interval once the container is found
+        fetch('./src/components/posts.json') // <---- Fetches and renders the blog posts
+          .then(response => response.json())
+          .then(posts => {
+            posts.forEach(post => {
+              const postElement = document.createElement('div');
+              postElement.classList.add('post');
+              postElement.innerHTML = `
+                <div class ="blog-post">
+                  <h4>${post.date}</h4>
+                  <h1>${post.title}</h1>
+                  <p>${post.content}</p>
+                </div>
+              `;
+              blogContainer.appendChild(postElement);
+            });
+          })
+          .catch(error => console.error('Error fetching blog posts:', error));
+      }
+    }, 100);  // Check every 100ms until the .blog-container is available
 
-        const audioFiles = [
-          { title: 'Lonely in Gorgeous', path: 'lonely.mp3' },
-          { title: 'bad.', path: 'bad.mp3' }
-        ];
+    //MUSIC PLAYER - MUSIC PLAYER - MUSIC PLAYER - MUSIC PLAYER
+    
 
-        let currentTrackIndex = 0;
-        const audio = document.createElement('audio');
-        audio.id = 'audio';
-        audio.preload = 'metadata';
-
-        const audioSource = document.createElement('source');
-        audioSource.id = 'audio-source';
-        audioSource.type = 'audio/mp3';
-        audio.appendChild(audioSource);
-
-        container.appendChild(audio);
-
-        const playPauseButton = document.createElement('button');
-        playPauseButton.id = 'play-pause';
-        playPauseButton.textContent = 'Play';
-        container.appendChild(playPauseButton);
-
-        const prevButton = document.createElement('button');
-        prevButton.id = 'prev';
-        prevButton.textContent = 'Previous';
-        container.appendChild(prevButton);
-
-        const nextButton = document.createElement('button');
-        nextButton.id = 'next';
-        nextButton.textContent = 'Next';
-        container.appendChild(nextButton);
-
-        // Function to load and play the current track
-        function loadTrack() {
-          const track = audioFiles[currentTrackIndex];
-          
-          // Pause the audio before changing the source
-          if (!audio.paused) {
-            audio.pause();
-          }
-
-          // Update the audio source
-          audioSource.src = track.path;
-          
-          // Load the new audio source
-          audio.load();
-
-          // Play the new track
-          audio.play().then(() => {
-            // Successfully started playing the audio
-            console.log('Playing: ', track.title);
-            playPauseButton.textContent = 'Pause';
-          }).catch(error => {
-            console.error('Error trying to play audio:', error);
-          });
-        }
-
-        // Function to toggle play/pause
-        playPauseButton.addEventListener('click', function() {
-          if (audio.paused) {
-            audio.play();
-            playPauseButton.textContent = 'Pause';
-          } else {
-            audio.pause();
-            playPauseButton.textContent = 'Play';
-          }
-        });
-
-        // Functions for previous and next track
-        prevButton.addEventListener('click', function() {
-          currentTrackIndex = (currentTrackIndex - 1 + audioFiles.length) % audioFiles.length;
-          loadTrack();
-        });
-
-        nextButton.addEventListener('click', function() {
-          currentTrackIndex = (currentTrackIndex + 1) % audioFiles.length;
-          loadTrack();
-        });
-
-        // Initial Track Load
-        loadTrack();
-      };
-    `;
-    document.body.appendChild(musicPlayerScript);
-
-    //GuestBook
+    //GUESTBOOK - GUESTBOOK - GUESTBOOK - GUESTBOOK
     const script = document.createElement('script');
 script.innerHTML = `
-  setTimeout(function() {
+  const checkInterval = setInterval(function() {
+    // Wait for the container to be available
+    const responsesContainer = document.getElementById('responses');
+    
+    if (!responsesContainer) {
+      console.error('Responses container not found!');
+      return;
+    }
+
+    // Fetch the CSV data if the container exists
     const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQukf_AzwlX4NyQig6R1xQKuuguR770Wb8usXC5viWmxOARGnA2baKo-fcyzmPiR06rFAoQ3bZ_4Ej_/pub?gid=773105761&single=true&output=csv';
     console.log('CSV URL:', csvUrl);
-    
+
     fetch(csvUrl)
       .then(response => {
         console.log('Fetch successful, response received:', response);
@@ -281,15 +270,10 @@ script.innerHTML = `
       .then(csvData => {
         console.log('CSV Data:', csvData);
         const rows = csvData.split('\\n');
-        const responsesContainer = document.getElementById('responses');
         
-        if (!responsesContainer) {
-          console.error('Responses container not found!');
-          return;
-        }
-
+        // Process the CSV data row by row
         rows.forEach((row, index) => {
-          if (index > 0) { // Skip the header row
+          if (index > 0) { // Skip header row
             const columns = row.split(',');
             const timestamp = columns[0];
             const songRecs = columns[1];
@@ -298,6 +282,7 @@ script.innerHTML = `
             
             console.log({ timestamp, songRecs, name, message });
 
+            // Create a new entry in the DOM
             const entry = document.createElement('div');
             entry.classList.add('entry');
             entry.innerHTML = \`
@@ -309,15 +294,17 @@ script.innerHTML = `
             responsesContainer.appendChild(entry);
           }
         });
+
+        // Clear the interval after the data has been fetched and processed
+        clearInterval(checkInterval);
       })
       .catch(error => {
         console.error('Error fetching CSV data:', error);
       });
-  }, 4000);
+  }, 3000);
 `;
 
 document.body.appendChild(script);
-
   }); 
 } 
 
