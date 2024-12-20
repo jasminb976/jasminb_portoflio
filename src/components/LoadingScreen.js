@@ -31,7 +31,7 @@ export function createLoadingScreen(container, onLoadComplete) {
   // Typing Animation
   let typingText = "*************";
   let typingIndex = 0;
-  const typingSpeed = 100; // Adjust the speed as needed
+  const typingSpeed = 100; 
 
   function type() {
     if (typingIndex < typingText.length) {

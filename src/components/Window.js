@@ -39,23 +39,19 @@ export function createWindow(container, windowData) {
         listeners: {
           start(event) {
             console.log('Drag started');
-            // Any initialization you want to do when dragging starts
             windowElem.style.opacity = '0.90'; 
           },
           move(event) {
             const target = event.target;
-            // Keep the dragged position in the data-x/data-y attributes
             const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
             const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-            // Translate the element
             target.style.transform = `translate(${x}px, ${y}px)`;
-            // Update the position attributes
+
             target.setAttribute('data-x', x);
             target.setAttribute('data-y', y);
           },
           end(event) {
             console.log('Drag ended');
-            // Any cleanup you want to do when dragging ends
             windowElem.style.opacity = '1'; // Reset opacity
           }
         }

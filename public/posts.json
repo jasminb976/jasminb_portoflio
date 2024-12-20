@@ -2,14 +2,14 @@
     {
       "id": 1,
       "title": "last final project of the semester!",
-      "content": "today is my last day of the fall semester!",
+      "content": "Today is my last day of the fall semester! After a long and trecherous two months of being overloaded with projects and homework, I have finally made it to the light at the end of the tunnel. Perhaps I should get a slice of strawbery shortcake as a reward?",
       "images":["/toroCat.jpg", "/toroCat.jpg"],
       "date": "dec 18, 2024"
     },
     {
       "id": 2,
       "title": "final seasons",
-      "content": "final season is next week T-T",
+      "content": "Finals is upon us! I have had the fortune of completely finishing one course of the six courses this semester. I only have to worry about the remaining 5 classes, but I know that I have at least two guaranteed A's. I can't wait till this semester is finally over. I wonder if I'll ever get an email response from the Study Abroad program.",
       "images":["/toroCat.jpg", "/toroCat.jpg"],
       "date": "nov 30, 2024"
     },
@@ -17,8 +17,8 @@
       "id": 3,
       "title": "First Blog Post",
       "images":["/toroCat.jpg", "/toroCat.jpg"],
-      "content": "I went to my first concert today!", 
-      "date": "nov 01, 2024"
+      "content": "Lorem Ipsum?", 
+      "date": "abc 00, 20XX"
     }
   ]
   
