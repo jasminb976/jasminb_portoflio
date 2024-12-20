@@ -262,6 +262,7 @@ export function createDesktop(container) {
               }
               postContent += `</section>`
               postContent += `<p class="post-text">${post.content}</p>`;
+              postContent += `<h2 class="post-border">────── ⋆⋅☆⋅⋆ ──────</h2>`
               postContent += `</div>`;
               postElement.innerHTML = postContent;
               blogContainer.appendChild(postElement);
@@ -340,7 +341,7 @@ document.body.appendChild(script);
 function shutDownDesktop(_desktop) { 
   const shutdownOverlay = document.createElement('div'); 
   shutdownOverlay.className = 'shutdown-overlay'; 
-  shutdownOverlay.innerText = '…ᘛ⁐̤ᕐᐷ move your mouse!'; 
+  shutdownOverlay.innerText = '…ᘛ⁐̤ᕐᐷ move your mouse or tap the screen!'; 
   document.body.appendChild(shutdownOverlay); 
 
   // Darkens the screen 
@@ -358,14 +359,17 @@ function shutDownDesktop(_desktop) {
   shutdownOverlay.style.justifyContent = 'center'; 
   shutdownOverlay.style.zIndex = 1000; 
 
-  // Wake up the desktop by shaking the mouse 
+  // Wake up the desktop by shaking the mouse or tapping the screen
   let shakeCount = 0; 
   const shakeListener = () => { 
     shakeCount += 1; 
     if (shakeCount > 35) { 
       document.body.removeChild(shutdownOverlay); 
-      window.removeEventListener('mousemove', shakeListener); 
+      window.removeEventListener('mousemove', shakeListener);
+      window.removeEventListener('touchstart', shakeListener); 
+      removeOverlay();
     } 
   }; 
   window.addEventListener('mousemove', shakeListener);
+  window.addEventListener('touchstart', shakeListener);
 }

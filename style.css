@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=VT323&display=swap');
 
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #F8B0C8;
-    color: black;
-    cursor: url('./public/pinkCursor.png'), auto;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #F8B0C8;
+  color: black;
+  cursor: url('./public/pinkCursor.png'), auto;
+}
 
 /*Loading Screen: Password Input + Profile Picture + Name*/
 .loading-screen {
@@ -75,34 +75,38 @@
 /*Folders*/
   .container{
     display: grid;
-    gap: 20px;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
     position: absolute;
-    top:50px; /*can be adjusted based on layout*/
-    left: 20px;
+    top: 25px; 
+    left: 30px;
   }
   .folder {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100px;
+    width: 90px;
+    height: 90px;
     cursor: pointer;
     z-index: 1;
   }
 
   .folder:hover{
-    background-color: rgba(175, 127, 115, 0.5);
-    transition: transform 0.2s; 
-    border-radius: 10%;
+    background-color: rgba(247, 144, 178, 0.7); 
+    border-radius: 5%;
+    transform: translateX(-10px);
   }
 
   .folder img{
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
   }
 
   span{
     font-family: 'VT323', monospace;
     font-size: 25px;
+    margin-top: -15px;
   }
 
 /*Window Tabs*/
@@ -113,6 +117,7 @@
     animation: fadeIn 0.5s;
     box-shadow: 0 0 10px rgba(175, 127, 115, 3);
     cursor: pointer;
+    border-radius: 10px;
     z-index: 2;
   }
 
@@ -178,6 +183,7 @@
 
   .close-btn{
     font-family: "Arial", sans-serif;
+    font-weight: bold;
     font-size: 16px;
     background: none;
     cursor: pointer;
@@ -187,7 +193,7 @@
     padding: 20px;
     height: 85%;
     overflow-y: auto;
-    scrollbar-width: thin;
+    scrollbar-width: auto;
     scrollbar-color: #AF7F73 #F9D0DE;
   }
 
@@ -588,18 +594,18 @@ h4{
   margin-top: 10px;
   font-family: 'Baloo2', sans-serif;
   font-size: 15px;
+  background-color: #F8B0C8;
 }
 
 .blog-post {
   margin-bottom: 30px;
-  background-color: #F790B2;
 }
 
 .blog-post .post-title {
   font-size: 30px;
   font-weight: bold;
   margin-top: -22px;
-  color:#F9D0DE;
+  color: #F790B2;
   font-family: 'Baloo 2', sans-serif;
 }
 
@@ -625,6 +631,10 @@ h4{
   gap: 8px;
 }
 
+.post-border{
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
 /*Text + Image Styling*/
 h1{
   text-align: center;
@@ -682,76 +692,316 @@ p{
 }
 
 /*Responsive Design*/
-  /*Mobile*/
-  @media (max-width: 600px) {
-    .taskbar {
-      height: 40px;
-      padding: 0 5px;
-    }
-    .power-button {
-      width: 35px;
-      height: 35px;
-      font-size: 16px;
-    }
-    .power-menu {
-      bottom: 50px;
-      left: 5px;
-      width: calc(100% - 10px);
-    }
-    .power-menu button {
-      padding: 5px;
-    }
-    .container{
-      grid-template-columns: 1fr;
-    }
-    .folder img{
-      width: 50px;
-      height: 50px;
-    }
+@media (max-width: 768px) { /* Breakpoint for smaller screens */
+  .container {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px;
+    top: 10px;
+    left: 10px;
   }
 
-  /*Desktop*/
-  @media (min-width: 900px){
-    .container{
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-    }
-    .folder:nth-child(1){
-      grid-column-start: 1;
-      grid-row-start: 1;
-    }
-    .folder:nth-child(2){ 
-      grid-column-start: 1; 
-      grid-row-start: 2;
-    } 
-    .folder:nth-child(3){ 
-      grid-column-start: 1; 
-      grid-row-start: 3; 
-    } 
-    .folder:nth-child(4){ 
-      grid-column-start: 2; 
-      grid-row-start: 1; 
-    } 
-    .folder:nth-child(5){ 
-      grid-column-start: 2; 
-      grid-row-start: 2;
-    }
-    .folder img{
-      width: 75px;
-      height: 75px;
-    }
+  .folder {
+    width: 70px; 
+    height: 70px;
   }
-  
-  /*General*/
-  @media (max-width: 899px){
-    .container{
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: repeat(1, 1fr);
-      justify-content: start;
-    }
-    .folder img{
-      width: 50px;
-      height: 50px
-    }
+  .folder img {
+    width: 70px; 
+    height: 70px; 
   }
-  
+
+  span {
+    font-size: 20px;
+    margin-top: -10px;
+  }
+
+  .taskbar {
+    height: 50px; 
+    padding: 0 5px;
+  }
+
+  .power-button {
+    width: 35px; 
+    height: 35px; 
+    font-size: 18px; 
+  }
+
+  .power-menu {
+    width: 130px; 
+    left: 5px; 
+  }
+  .window-pet {
+    width: 300px;
+    height: 350px;
+  }
+
+  .window-welcome {
+    width: 500px;
+  }
+
+  .window-updates {
+    width: 200px;
+    height: 500px;
+  }
+
+  .window-me {
+    width: 400px;
+    height: 400px;
+  }
+
+  .window-projects {
+    width: 600px;
+    height: 500px;
+  }
+
+  .window-media {
+    width: 550px;
+    height: 500px;
+  }
+
+  .window-contact {
+    width: 500px;
+    height: 500px;
+  }
+
+  .window-blog {
+    width: 450px;
+    height: 550px;
+  }
+
+  .window-header {
+    padding: 8px;
+  }
+
+  .window-title {
+    font-size: 25px;
+  }
+
+  .close-btn {
+    font-size: 14px;
+  }
+
+  .window-content {
+    padding: 15px;
+  }
+  .projects-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-card {
+    max-width: 90%;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .musicArtist {
+    width: 100%;
+    height: auto;
+  }
+
+  .book {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .bookDesc {
+    font-size: 18px;
+  }
+
+  .ipod {
+    width: 150px;
+    height: 250px;
+  }
+
+  .screen h3 {
+    font-size: 16px;
+  }
+
+  .button .b {
+    font-size: 20px;
+  }
+
+  .form-wrapper {
+    width: 90%;
+  }
+
+  iframe {
+    height: 400px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+} 
+
+/* Responsive design for mobile or very small screens */
+@media (max-width: 480px) { 
+  .container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 10px;
+    top: 10px;
+    left: 20px;
+  }
+
+  .folder {
+    width: 50px; 
+    height: 50px; 
+  }
+
+  .folder img {
+    width: 50px; 
+    height: 50px; 
+  }
+
+  span {
+    font-size: 18px;
+    margin-top: -5px;
+  }
+  .taskbar {
+    height: 40px; 
+    padding: 0 5px;
+  }
+
+  .power-button {
+    width: 30px; 
+    height: 30px; 
+    font-size: 16px;
+  }
+
+  .power-menu {
+    width: 120px; 
+    left: 0px; 
+    bottom: 50px; 
+  }
+
+  .power-menu button {
+    font-size: 14px; 
+    padding: 4px 8px; 
+  }
+  .window-pet {
+    width: 250px;
+    height: 300px;
+  }
+
+  .window-welcome {
+    width: 400px;
+  }
+
+  .window-updates {
+    width: 180px;
+    height: 450px;
+  }
+
+  .window-me {
+    width: 350px;
+    height: 350px;
+  }
+
+  .window-projects {
+    width: 550px;
+    height: 450px;
+  }
+
+  .window-media {
+    width: 500px;
+    height: 450px;
+  }
+
+  .window-contact {
+    width: 450px;
+    height: 450px;
+  }
+
+  .window-blog {
+    width: 400px;
+    height: 500px;
+  }
+
+  .window-header {
+    padding: 6px;
+  }
+
+  .window-title {
+    font-size: 20px;
+  }
+
+  .close-btn {
+    font-size: 12px;
+  }
+
+  .window-content {
+    padding: 10px;
+  }
+  .projects-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-card {
+    max-width: 100%;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .musicArtist {
+    width: 100%;
+    height: auto;
+  }
+
+  .book {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .bookDesc {
+    font-size: 16px;
+  }
+
+  .ipod {
+    width: 130px;
+    height: 220px;
+    align-items: center;
+  }
+
+  .screen h3 {
+    font-size: 14px;
+  }
+
+  .button .b {
+    font-size: 18px;
+  }
+
+  .form-wrapper {
+    width: 90%;
+  }
+
+  iframe {
+    height: 300px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+}
