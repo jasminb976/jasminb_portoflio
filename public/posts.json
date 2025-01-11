@@ -1,24 +1,38 @@
 [
     {
       "id": 1,
-      "title": "last final project of the semester!",
-      "content": "Today is my last day of the fall semester! After a long and trecherous two months of being overloaded with projects and homework, I have finally made it to the light at the end of the tunnel. Perhaps I should get a slice of strawbery shortcake as a reward?",
-      "images":["/toroCat.jpg", "/toroCat.jpg"],
+      "title": "blog entry 005 - last final project of the semester!",
+      "content": "Today is my last day of the fall semester! After a long and trecherous two months of being overloaded with projects and homework, I have finally made it to the light at the end of the tunnel. Perhaps I should get a slice of strawbery shortcake as a reward? I have to wait for the official grades to come out, but I am certain that I have earned mostly A's this semester (I hope). I am so excited to finally have a break and to be able to relax and play games all day. I am also excited to be able to work on my website and to be able to write more blog posts! I hope you all look forward to it! In other news, I have been accepted to the mentorship program for the media studies department and have been accepted by the study abroad program to apply to YISS! I am so excited AHHHHH!",
+      "images":[],
       "date": "dec 18, 2024"
     },
     {
       "id": 2,
-      "title": "final seasons",
-      "content": "Finals is upon us! I have had the fortune of completely finishing one course of the six courses this semester. I only have to worry about the remaining 5 classes, but I know that I have at least two guaranteed A's. I can't wait till this semester is finally over. I wonder if I'll ever get an email response from the Study Abroad program.",
-      "images":["/toroCat.jpg", "/toroCat.jpg"],
+      "title": "blog entry 004 - final seasons",
+      "content": "I can't believe December is finally here! Finals is upon us! I have had the fortune of completely finishing one course of the six courses this semester and I only have to worry about the remaining 5 classes. I can't wait till this semester is finally over. I applied to my college's study abroad application a few weeks ago and I am nervouse to see whether I'll be accecpted by the office to do YISS.",
+      "images":[],
       "date": "nov 30, 2024"
     },
     {
       "id": 3,
-      "title": "First Blog Post",
-      "images":["/toroCat.jpg", "/toroCat.jpg"],
-      "content": "Lorem Ipsum?", 
-      "date": "abc 00, 20XX"
+      "title": "blog entry 003 - fear of the unknown vs. FOMO",
+      "content": "Ever since the concert there has been a thought that has crossed my mind - why did I buy those tickets? I am glad that I took the leap of faith to buy them and get to experience my first concert, but it had been a spurred of the moment. The tickets were sold around the summer (around June or July) and I had been taking some summer classes to fufill my Computer Science minor. I didn't mind taking classes over the summer as I felt that I was being more productive than the past few summers, but there was one emotion that was amplified this particular summer - FOMO. <br><br> It had felt that everyone around me had gone somewhere or had done something fun while I was stucking at home trying to figure out what recursion or the pigeonhole principle was. Posts from Chicago and San Francisco all the way to Busan and Akihabara would fill my feed while my photo gallery was filled with screenshots of teacher notes. It didn't help that my fear were somewhat solidify when there was a lack of students in the classroom I was taking my Software Analysis class (or perhaps it was due to the fact that it was summer). Regardless, my FOMO was at an all-time high, but I was thinking how despite if I were to be given the opportunity to do something or decide in the moment, I would immediately hesitate. The last time I had decide in the moment was in 11th grade where I decided to go to a retreat for a highschool mentorship program and that was after much delibiration and discussion between the guidance counseler in charge of the program and me (Shoutout to the PGC group!). I am a person that needs to list out all the pros and cons in each situation or opportunity that I have placed upon in order to figure out whether it is worth taking the chance. <br><br> I always found it ironic how these two fears have been deeply embedded within society despite seemingly being contradictory in nature, thus creating an internal tug-of-war in oneself. The fear of the unknown is said to keep us tethered to the familiar and safe. As people, it's natural to crave predictabilty and the comfort of the known, offering a sense of control over our lives. It can also help us in taking the time to thoroughly make safe decisions in potential dangers and outcomes as well. On the other hand, FOMO is seen as a relatively modern phenomenon, further emphasized by social media. It is a vivid reflection for our deep-seated need for belonging and validation. We always want to put the best aspects of our lives out to the public (I am a victim of this too). The constant barrage of perfectly curated highlights from others' lives fosters a sense of inadequacy and a fear that we are not living our lives to the fullest. <br><br> The irony of these two fear is how they seemingly intersect and amplify one another. The fear of the unknown makes us hesitant to seize new opportunites while FOMO reminds us the potential regret of not taking chances. This internal struggle leads to paralysis, where we remain within our comfort zones while simultaneously having that nagging feeling of dissatisfaction in the back of your mind. It's a never-ending cycle of what-ifs and what-could-have-beens. It is important to recognize the duality of both fears that originate from a desire for control that allows us to develop a more balanced approach to life. We can strive to face the unknown with curiosity and courage, while also be mindful to appreciate the present moment and the choices we make. <br><br> As an introvert by heart, I love being in my comfort zone, but it doesn't mean that I get FOMO every once in a while. So much so that I applied to study abroad next summer and applied to a mentorship program with my college. Regardless of what happens, I am glad that I took the chance to apply to these two opportunites and get rid of those 'What-ifs?' that could haunt me at 2:30am in the near future. I am glad that I took the chance to buy the tickets and to go to the concert, but I am also glad that I took the chance to take the summer classes and to be able to explore more about my passion computer science. I am glad that I took the chance to write this blog post. I am glad that I took the chance to take a chance. I hope that you take the chance to take a chance too!",
+      "images":[],
+      "date": "nov 10, 2024"
+    },
+    {
+      "id": 4,
+      "title": "blog entry 002 - w2e concert",
+      "content": "I went to the w2e concert today! It's my first concert and to say I was nervous was an understatement. I was planning on skipping my one class today, but unfortunately I had no choice but to go due to an exam. The person I was going with and I were planning to meet up a few hours before the entry hour and eat at a nearby restaurant. When we arrived, the line had started to form and already wrapped around the block and had to stand in line for at least 2 hours T-T. In the end, it ended up being worth it because I was able to snag all the merch I wanted (but we won't talk about the amount I spent). We also got great seats to watch the concert! I'm glad that I took the chance to buy the tickets back in the summer!",
+      "images":["/w2e_Shirt.jpg", "/moreMerch.png"],
+      "date": "nov 01, 2024"
+    },
+    {
+      "id": 5,
+      "title": "blog entry 001",
+      "images":[],
+      "content": "This is my first blog post... It's really a test. It's really just a test. Anyway, it's Jasmin (or Jasme in-game)! Thank you for looking at my site! Here is where I'll write random snippets of my life or just some random thoughts I have. I'm unsure how often or how organized each entry will be but I hope you look foward to it! See you next time!", 
+      "date": "oct 29, 2024"
     }
   ]
   

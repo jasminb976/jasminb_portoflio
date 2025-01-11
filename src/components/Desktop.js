@@ -145,7 +145,7 @@ export function createDesktop(container) {
         <h1>welcome to my portfolio,
         <br>User!</h1>
         <div class="layout">
-          <div><p>Hi there! I hope you enjoy your stay as you see my progress as a designer + developer through my projects and get to know me as a person through this portfolio website.</p></div>
+          <div><p>Hi there! I hope you enjoy your stay as you see my progress as a designer + developer through my projects and get to know me as a person through this website.</p></div>
           <div><img src="rollingCat.gif" width="80px" class="mainImg"> </div>
         </div> 
         `, 
@@ -246,8 +246,8 @@ export function createDesktop(container) {
               postElement.classList.add('post');
               let postContent = `
                 <div class="blog-post">
-                  <h4 class="post-date">${post.date}</h4>
                   <h1 class="post-title">${post.title}</h1>
+                  <h4 class="post-date">${post.date}</h4>
                   <section class="postImg">
               `;
               if (post.images && Array.isArray(post.images)) {

@@ -515,38 +515,36 @@ b{
   font-family: 'VT323', monospace;
 }
 
-iframe {
+iframe{
+  width: 100%;
+  height: 100%;
   border: none;
-  width: 100%; 
-  height: 100%; 
-  margin-bottom: -200px;
 }
-
 .guestbookI{
   width: 100%;
-  height: 900px;
+  height: 1200px;
   overflow-y: hidden;
+  border: none;
 }
 
 /*Blog Window Tab*/
 h4{
   color:#AF7F73;
-  margin-top: 10px;
+  margin-top: -20px;
   font-family: 'Baloo2', sans-serif;
   font-size: 15px;
-  background-color: #F8B0C8;
 }
 
 .blog-post {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .blog-post .post-title {
-  font-size: 30px;
+  font-size: 27px;
   font-weight: bold;
-  margin-top: -22px;
   color: #F790B2;
   font-family: 'Baloo 2', sans-serif;
+  text-align: left;
 }
 
 .blog-post .post-text {
