@@ -123,14 +123,10 @@ export function createDesktop(container) {
         icon: 'contact-folder-icon.png',
         content:`
         <h2>Thank you for viewing my website/portfolio!</h2>
-        <p>For collaboration inquiries, please contact me by emailing <a href="mailto:jb123@hotmail.com" ><b class="email">jb123@hotmail.com</b></a> </p>
+        <p>For collaboration inquiries, please contact me by emailing <a href="mailto:bonillajasmin976@gmail.com" ><b class="email">bonillajasmin976@gmail.com</b></a> </p>
         
         <h2>If you just want to drop a quick message, sign the guestbook down below!</h2>
-          <div class="form-wrapper">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfLuERp6UzgNk3JHBy6N7rOGi6_pZ3cNpEIeCkLY3Dyb6Oovw/viewform?embedded=true" width="640" height="715" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-          </div>
-          <h2>Responses:</h2>
-          <div id="responses"></div>
+        <iframe class = "guestbookI"src = "https://jasme.atabook.org/"></iframe>
         `, 
         className: 'window-contact'
       },
@@ -270,68 +266,7 @@ export function createDesktop(container) {
           })
           .catch(error => console.error('Error fetching blog posts:', error));
       }
-    }, 100);  
-
-    //MUSIC PLAYER - MUSIC PLAYER - MUSIC PLAYER - MUSIC PLAYER
-    
-
-    //GUESTBOOK - GUESTBOOK - GUESTBOOK - GUESTBOOK
-    const script = document.createElement('script');
-script.innerHTML = `
-  const checkInterval = setInterval(function() {
-    // Wait for the container to be available
-    const responsesContainer = document.getElementById('responses');
-    
-    if (!responsesContainer) {
-      console.error('Responses container not found!');
-      return;
-    }
-
-    // Fetch the CSV data if the container exists
-    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQukf_AzwlX4NyQig6R1xQKuuguR770Wb8usXC5viWmxOARGnA2baKo-fcyzmPiR06rFAoQ3bZ_4Ej_/pub?gid=773105761&single=true&output=csv';
-    console.log('CSV URL:', csvUrl);
-
-    fetch(csvUrl)
-      .then(response => {
-        console.log('Fetch successful, response received:', response);
-        return response.text();
-      })
-      .then(csvData => {
-        console.log('CSV Data:', csvData);
-        const rows = csvData.split('\\n');
-        
-        // Process the CSV data row by row
-        rows.forEach((row, index) => {
-          if (index > 0) { // Skip header row
-            const columns = row.split(',');
-            const timestamp = columns[0];
-            const songRecs = columns[1];
-            const name = columns[2];
-            const message = columns[3];
-            
-            console.log({ timestamp, songRecs, name, message });
-
-            // Create a new entry in the DOM
-            const entry = document.createElement('div');
-            entry.classList.add('entry');
-            entry.innerHTML = \`
-              <p><em>\${timestamp}</em></p>
-              <p><strong>\${name}</strong> says:</p>
-              <p>\${message}</p>
-              <p><em>Song recs: \${songRecs}</em></p>
-            \`;
-            responsesContainer.appendChild(entry);
-          }
-        });
-
-        // Clear the interval after the data has been fetched and processed
-        clearInterval(checkInterval);
-      })
-      .catch(error => {
-        console.error('Error fetching CSV data:', error);
-      });
-  }, 3000);
-`;
+    }, 100);
 
 document.body.appendChild(script);
   }); 
