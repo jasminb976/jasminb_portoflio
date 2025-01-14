@@ -33,32 +33,48 @@ export function createDesktop(container) {
         name: 'projects', 
         icon: 'project-folder-icon.png',
         content:`
-        <section class="projects-section"> 
-          <div class="projects-container"> 
-            <div class="project-card"> 
-              <img src="/webProgramming.png" alt="Project 1"> 
-              <div class="project-info"> 
-              <h3>web programming class portfolio</h3> 
-              <p>a website that holds all my work for my web programming class</p> 
-              <div class="buttons"> <a href="https://jasminb976.github.io./index.html" target="_blank" class="btn">Live Site</a> <a href="https://github.com/jasminb976/jasminb976.github.io" target="_blank" class="btn">Repository</a> </div>
-            </div> 
+        <section class="projects-section">
+        <div class="projects-container"> 
+          <h2 class = "project-title">Web Development/Design</h2> 
+          <div class="project-card"> 
+                <img src="/webProgramming.png" alt="Project 1"> 
+                <div class="project-info"> 
+                    <h3>web programming class portfolio</h3> 
+                    <p>a website that holds all my work for my web programming class</p> 
+                    <h4 class="tech">technologies used: HTML, CSS, and Vanilla Javascript</h4>
+                    <div class="buttons"> 
+                        <a href="https://jasminb976.github.io./index.html" target="_blank" class="btn">Live Site</a> 
+                        <a href="https://github.com/jasminb976/jasminb976.github.io" target="_blank" class="btn">Repository</a> 
+                    </div>
+                </div> 
           </div> 
           <div class="project-card"> 
-            <img src="laufeyFansite.png" alt="Project 2"> 
-            <div class="project-info"> 
-              <h3>Laufey Fansite</h3> 
-              <p>a fansite website that uses an API to randomly call for Laufey song lyrics</p>
-              <div class="buttons"> <a href="https://coding-practice3.netlify.app/" target="_blank" class="btn">Live Site</a> </div> 
+                <img src="laufeyFansite.png" alt="Project 2"> 
+                <div class="project-info"> 
+                    <h3>Laufey Fansite</h3> 
+                    <p>a fansite website that uses an API to randomly call for Laufey song lyrics</p>
+                    <h4 class="tech">techonologies used: HTML, CSS, Vanilla Javascript, and API</h4>
+                    <div class="buttons"> 
+                        <a href="https://coding-practice3.netlify.app/" target="_blank" class="btn">Live Site</a> 
+                    </div> 
+                </div>
+          </div> 
+          <div class="project-card"> 
+                <img src="gourmetHub.png" alt="Project 3"> 
+                <div class="project-info"> 
+                    <h3>Gourmet Hub</h3> 
+                    <p>a recipe finder website that uses the mealDB api to call for the recipes</p>
+                    <h4 class="tech">technologies used: HTML, CSS, Vanilla Javasript, and API</h4>
+                    <div class="buttons"> 
+                        <a href="https://sumptuous-buttery-orbit.glitch.me" target="_blank" class="btn">Live Site</a> 
+                        <a href="https://glitch.com/edit/#!/sumptuous-buttery-orbit" target="_blank" class="btn">Glitch Code</a> 
+                    </div> 
+                </div>
             </div>
-          </div> 
-          <div class="project-card"> 
-            <img src="gourmetHub.png" alt="Project 3"> 
-            <div class="project-info"> 
-              <h3>Gourmet Hub</h3> 
-              <p>a recipe finder website that uses the mealDB api to call for the recipes</p>
-              <div class="buttons"> <a href="https://sumptuous-buttery-orbit.glitch.me" target="_blank" class="btn">Live Site</a> <a href="https://glitch.com/edit/#!/sumptuous-buttery-orbit" target="_blank" class="btn">Glitch Code</a> </div> 
-            </div> 
-          </div>
+            <h2 class = "project-title">Graphic Design</h2> 
+            <p>Coming soon!</p>
+        </div> 
+    </section>
         `,
         className: 'window-projects'
       },
@@ -104,7 +120,8 @@ export function createDesktop(container) {
           </section>
         </div>
       </section>
-      <h2>my fav/current reads: </h2>
+
+      <h2>Reading Log:</h2>
       <section class="bookGrid">
         <div><img src="/gambler.jpg" class ="book"></div>
         <div><p class="bookDesc">★★★★ <br> This book was the first book i've read after a 3 year break of reading books on my free time. Dostoevsky is infamously known for his classic works, especially "Crime and Punishment" and "The Brothers Karamazov", but I decided to pick up a less known book of his.</p></div>

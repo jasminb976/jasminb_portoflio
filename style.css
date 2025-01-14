@@ -300,7 +300,6 @@ body {
     gap: 20px; 
     
   } 
-
   .project-card { 
     background-color: whitesmoke; 
     border-radius: 10px; 
@@ -330,6 +329,18 @@ body {
     color: #AF7F73;
   }
 
+  .project-title{
+    margin-top: -10px;
+    margin-bottom: -10px;
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .tech{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 15px;
+  }
   .buttons{ 
     margin-top: 5px;
     margin-left: 25%;
@@ -380,7 +391,6 @@ body {
   gap: 2px 10%;
 }
 
-
 .book{
   width: 60%;
   height: 100%;
@@ -388,6 +398,7 @@ body {
   /*margin-right: -20px;*/
   margin-top: -20px;
 }
+
 
 .bookDesc{
   text-align: left;
