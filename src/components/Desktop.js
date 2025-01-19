@@ -20,13 +20,18 @@ export function createDesktop(container) {
       { id: 1, 
         name: 'about Me', 
         icon: 'about-folder-icon.png',
-        content:`
+        content:`        
         <h1>hello there!</h1>
-        <img src="ac-avatar.png" class="avatarImg">
-        <p>It's <b>Jasmin</b>! A CUNY Hunter student majoring in media studies and minoring in Computer Science based 
-          in New York City. I love to create beautiful experiences for people and am interested in challenging myself 
-          to gain new knowledges plus develop my creativity in fun designs. 
-        </p>
+        <div class="blurb">
+          <img src="ac-avatar.png" class="avatarImg">
+          <p>It's <b>Jasmin</b>,  a NYC college student majoring in media studies and minoring in Computer Science. I am 
+          a passionate and aspiring designer/developer on a journey to create beautiful experiences for people through the web.</p>
+        </div>
+        <br>
+        <p>My projects so far have only been personal. It has always been my passion to create captivating graphics and compelling websites. It's been a 
+        long and tough journey, but I am proud of the progress I've made so far and hope to someday reach my goal. Let' create magic together!</p>
+        <br>
+
         `, 
         className: 'window-me'},
       { id: 2, 
@@ -71,8 +76,18 @@ export function createDesktop(container) {
                     </div> 
                 </div>
             </div>
+            <br>
             <h2 class = "project-title">Graphic Design</h2> 
-            <p>Coming soon!</p>
+            <h3 class = "text">Used a mix of Canva and Adobe Cloud Suite platforms (mostly Illustrator, Photoshop, & Indesign)</h3>
+            <section id="photos">
+              <div class="grid">
+                <a href="#img-01"><img loading="lazy" alt="" src="albumCover.jpg"></a>
+                <a href="#img-02"><img loading="lazy" alt="" src="clubPost.jpg"></a>
+                <a href="#img-03"><img loading="lazy" alt="" src="goldfishPoster.png"></a>
+                <a href="#img-04"><img loading="lazy" alt="" src="retroTommy.png"></a>
+                <a href="#img-05"><img loading="lazy" alt="" src="smiskiFOMO.png"></a>
+              </div>
+             </section>
         </div> 
     </section>
         `,
